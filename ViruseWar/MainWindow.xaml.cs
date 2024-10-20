@@ -25,7 +25,7 @@ namespace ViruseWar
         private bool move_first = true;
         private static FieldLogic m_field = null;
         private static MyButton[,] ButtonsField = new MyButton[m_dimension, m_dimension];
-        
+
         public MainWindow()
         {
             // For Binding, we can delete this
@@ -91,7 +91,8 @@ namespace ViruseWar
             if (recolor == Player.EMPTY)
                 return;
 
-            if (++NumOfCalls >= 3) {
+            if (++NumOfCalls >= 3)
+            {
                 NumOfCalls = 0;
                 move_first = !move_first;
                 PlayerTurn.Text = move_first ? "Player 1's turn" : "Player 2's turn";
@@ -100,10 +101,13 @@ namespace ViruseWar
 
             }
 
-            if (recolor == Player.FIRST || recolor == Player.SECOND) {
+            if (recolor == Player.FIRST || recolor == Player.SECOND)
+            {
                 button.Foreground = MyColors.ChooseColor[recolor];
                 button.Content = (recolor == Player.FIRST) ? "X" : "O";
-            } else {
+            }
+            else
+            {
                 button.Background = MyColors.ChooseColor[recolor];
                 button.Content = "";
             }

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViruseWar", "ViruseWar\ViruseWar.csproj", "{EDD83976-836A-4AD0-BF9A-3350F5129B5C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViruseWar", "ViruseWar\ViruseWar.csproj", "{8371988E-68C9-4D39-8EC7-549B8BE482BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EDD83976-836A-4AD0-BF9A-3350F5129B5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EDD83976-836A-4AD0-BF9A-3350F5129B5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EDD83976-836A-4AD0-BF9A-3350F5129B5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EDD83976-836A-4AD0-BF9A-3350F5129B5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8371988E-68C9-4D39-8EC7-549B8BE482BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8371988E-68C9-4D39-8EC7-549B8BE482BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8371988E-68C9-4D39-8EC7-549B8BE482BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8371988E-68C9-4D39-8EC7-549B8BE482BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {B70A8326-B1E2-4763-A0B9-52F67702A858}
+		SolutionGuid = {ED1C91C2-62CC-4D1A-A231-4EB999E0CB85}
 	EndGlobalSection
 EndGlobal
