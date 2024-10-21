@@ -116,6 +116,7 @@ namespace ViruseWar
                 button.Content = "";
             }
         }
+
         private static readonly Caretaker caretaker = new();
         // Key Interaction
         private void WindowKeyDown(object sender, KeyEventArgs e)
@@ -137,8 +138,10 @@ namespace ViruseWar
                     MessageBox.Show("You don't have a saves");
             }
         }
+
         private void ButtonGiveUp(object sender, RoutedEventArgs e)
         {
+            // TODO: Add Result to DB
             GiveUpWindow GUwindow = new(move_first);
             Close();
             GUwindow.Show();

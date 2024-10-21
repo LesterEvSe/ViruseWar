@@ -10,5 +10,6 @@ namespace ViruseWar
     public interface IMementoField
     {
         Player[,] GetMatrix();
+        string SerializeMatrix();
     }
 }

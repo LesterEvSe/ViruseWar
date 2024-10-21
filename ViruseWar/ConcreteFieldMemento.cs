@@ -16,12 +16,15 @@ namespace ViruseWar
             for (int i = 0; i < matrix.GetLength(0); ++i)
                 for (int j = 0; j < matrix.GetLength(1); ++j)
                     m_field[i, j] = matrix[i, j];
-
         }
         public Player[,] GetMatrix()
         {
             if (m_field != null) return m_field;
             throw new NullReferenceException();
+        }
+        public string SerializeMatrix()
+        {
+            throw new NotImplementedException();
         }
     }
 }

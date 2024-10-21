@@ -16,7 +16,6 @@ namespace ViruseWar
         private int NumOfBackups_SecondPl = 1;
         public bool Backup(bool move_first)
         {
-            //if (orig == null) return false;
             if (move_first && NumOfBackups_FirstPl > 0)
             {
                 --NumOfBackups_FirstPl;

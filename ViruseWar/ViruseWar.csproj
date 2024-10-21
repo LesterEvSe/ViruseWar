@@ -16,10 +16,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="ViruseWarClassLibrary">
-      <HintPath>ViruseWarClassLibrary.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>
