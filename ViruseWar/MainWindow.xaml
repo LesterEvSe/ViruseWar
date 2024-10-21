@@ -8,7 +8,6 @@ xmlns:local="clr-namespace:ViruseWar"
 mc:Ignorable="d"
 Title="MainWindow" Height="700" Width="650"
 Left="400" Top="75" KeyDown="WindowKeyDown"
-xmlns:VWClassLibrary="clr-namespace:ViruseWarClassLibrary"
 MinHeight="700" MinWidth="650" MaxHeight="700" MaxWidth="650">
     <Grid Background="#256D85">
         <Grid.RowDefinitions>

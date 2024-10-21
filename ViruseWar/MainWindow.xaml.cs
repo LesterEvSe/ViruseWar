@@ -13,7 +13,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using VWClassLibrary;
 
 namespace ViruseWar
 {
@@ -23,8 +22,8 @@ namespace ViruseWar
         // the default constant is static
         private const int m_dimension = 10;
         private bool move_first = true;
-        private static FieldLogic m_field = null;
-        private static MyButton[,] ButtonsField = new MyButton[m_dimension, m_dimension];
+        private static FieldLogic? m_field;
+        private static readonly MyButton[,] ButtonsField = new MyButton[m_dimension, m_dimension];
 
         public MainWindow()
         {
@@ -36,18 +35,22 @@ namespace ViruseWar
             GiveUp.BorderBrush = GiveUp.Foreground = MyColors.ChooseColor[Player.FIRST];
             for (int i = 0; i < m_dimension; ++i)
             {
-                StackPanel stackPanel = new StackPanel();
-                stackPanel.Orientation = Orientation.Horizontal;
+                StackPanel stackPanel = new()
+                {
+                    Orientation = Orientation.Horizontal
+                };
                 for (int j = 0; j < m_dimension; ++j)
                 {
-                    MyButton button = new MyButton(i, j);
-                    button.BorderBrush = Brushes.Black;
-                    button.Background = MyColors.ChooseColor[Player.EMPTY];
-                    button.Height = 50;
-                    button.Width = 50;
+                    MyButton button = new(i, j)
+                    {
+                        BorderBrush = Brushes.Black,
+                        Background = MyColors.ChooseColor[Player.EMPTY],
+                        Height = 50,
+                        Width = 50,
 
-                    button.FontWeight = FontWeights.Bold;
-                    button.FontSize = 30;
+                        FontWeight = FontWeights.Bold,
+                        FontSize = 30
+                    };
                     stackPanel.Children.Add(button);
                     button.Click += ButtonClick;
                     ButtonsField[i, j] = button;
@@ -59,8 +62,10 @@ namespace ViruseWar
             ButtonsField[m_dimension - 1, 0].Foreground = MyColors.ChooseColor[Player.FIRST];
             ButtonsField[m_dimension - 1, 0].Content = "X";
         }
-        private void RedrawField()
+        private static void RedrawField()
         {
+            if (m_field == null)
+                throw new NullReferenceException();
             for (int i = 0; i < m_dimension; ++i)
                 for (int j = 0; j < m_dimension; ++j)
                 {
@@ -83,11 +88,10 @@ namespace ViruseWar
         // sender - returns the pressed button
         private void ButtonClick(object sender, RoutedEventArgs e)
         {
-            MyButton button = sender as MyButton;
-            if (button == null)
-                return;
+            if (sender is not MyButton button || m_field == null)
+                throw new NullReferenceException();
 
-            Player recolor = m_field.CheckCell(button.row, button.col, move_first);
+            Player recolor = FieldLogic.CheckCell(button.Row, button.Col, move_first);
             if (recolor == Player.EMPTY)
                 return;
 
@@ -112,7 +116,7 @@ namespace ViruseWar
                 button.Content = "";
             }
         }
-        private static Caretaker caretaker = new Caretaker(FieldLogic.GetObject());
+        private static readonly Caretaker caretaker = new();
         // Key Interaction
         private void WindowKeyDown(object sender, KeyEventArgs e)
         {
@@ -135,7 +139,7 @@ namespace ViruseWar
         }
         private void ButtonGiveUp(object sender, RoutedEventArgs e)
         {
-            GiveUpWindow GUwindow = new GiveUpWindow(move_first);
+            GiveUpWindow GUwindow = new(move_first);
             Close();
             GUwindow.Show();
         }

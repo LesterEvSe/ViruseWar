@@ -24,7 +24,7 @@ namespace ViruseWar
         }
         private void StartGame(object sender, RoutedEventArgs e)
         {
-            MainWindow MWindow = new MainWindow();
+            MainWindow MWindow = new();
             Close();
             MWindow.Show();
         }

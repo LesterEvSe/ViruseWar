@@ -13,7 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-namespace VWClassLibrary
+
+namespace ViruseWar
 {
     public enum Player
     {
@@ -25,9 +26,9 @@ namespace VWClassLibrary
     }
     public class MyColors
     {
-        private static Brush first_color = Brushes.DarkViolet;
-        private static Brush second_color = Brushes.Turquoise;
-        public static Dictionary<Player, Brush> ChooseColor = new Dictionary<Player, Brush>()
+        private static readonly Brush first_color = Brushes.DarkViolet;
+        private static readonly Brush second_color = Brushes.Turquoise;
+        public static Dictionary<Player, Brush> ChooseColor { get; } = new()
         {
             { Player.EMPTY, Brushes.White },
             { Player.FIRST, first_color },

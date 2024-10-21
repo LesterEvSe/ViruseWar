@@ -1,31 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-namespace VWClassLibrary
+
+namespace ViruseWar
 {
-    public class Caretaker
+    public class Caretaker()
     {
-        private IMementoField FirstPlMemento = null;
-        private IMementoField SecondPlMemento = null;
-        private FieldLogic orig = null;
-        public Caretaker(FieldLogic obj) { orig = obj; }
+        private IMementoField? FirstPlMemento;
+        private IMementoField? SecondPlMemento;
 
         private int NumOfBackups_FirstPl = 1;
         private int NumOfBackups_SecondPl = 1;
         public bool Backup(bool move_first)
         {
+            //if (orig == null) return false;
             if (move_first && NumOfBackups_FirstPl > 0)
             {
                 --NumOfBackups_FirstPl;
-                FirstPlMemento = orig.Save();
+                FirstPlMemento = FieldLogic.Save();
                 return true;
             }
             else if (!move_first && NumOfBackups_SecondPl > 0)
             {
                 --NumOfBackups_SecondPl;
-                SecondPlMemento = orig.Save();
+                SecondPlMemento = FieldLogic.Save();
                 return true;
             }
             return false;
@@ -34,13 +35,13 @@ namespace VWClassLibrary
         {
             if (move_first && FirstPlMemento != null)
             {
-                orig.Restore(FirstPlMemento);
+                FieldLogic.Restore(FirstPlMemento);
                 FirstPlMemento = null;
                 return true;
             }
             else if (!move_first && SecondPlMemento != null)
             {
-                orig.Restore(SecondPlMemento);
+                FieldLogic.Restore(SecondPlMemento);
                 SecondPlMemento = null;
                 return true;
             }

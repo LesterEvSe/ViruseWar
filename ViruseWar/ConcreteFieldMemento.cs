@@ -4,11 +4,12 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
-namespace VWClassLibrary
+
+namespace ViruseWar
 {
     public class ConcreteFieldMemento : IMementoField
     {
-        private Player[,] m_field = null;
+        private readonly Player[,]? m_field;
         public ConcreteFieldMemento(Player[,] matrix)
         {
             m_field = new Player[matrix.GetLength(0), matrix.GetLength(1)];
@@ -17,6 +18,10 @@ namespace VWClassLibrary
                     m_field[i, j] = matrix[i, j];
 
         }
-        public Player[,] GetMatrix() { return m_field; }
+        public Player[,] GetMatrix()
+        {
+            if (m_field != null) return m_field;
+            throw new NullReferenceException();
+        }
     }
 }

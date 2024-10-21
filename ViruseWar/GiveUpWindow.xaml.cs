@@ -11,7 +11,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using VWClassLibrary;
 
 namespace ViruseWar
 {
@@ -25,7 +24,7 @@ namespace ViruseWar
         }
         private void NewGameClick(object sender, RoutedEventArgs e)
         {
-            MainWindow MWindow = new MainWindow();
+            MainWindow MWindow = new();
             Close();
             MWindow.Show();
         }

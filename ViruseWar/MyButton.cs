@@ -13,18 +13,13 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-namespace VWClassLibrary
+
+namespace ViruseWar
 {
     // Create 100 MyButtons
-    public class MyButton : Button
+    public class MyButton(int row, int col) : Button()
     {
-        public int row { get; private set; }
-        public int col { get; private set; }
-
-        public MyButton(int _row, int _col) : base()
-        {
-            row = _row;
-            col = _col;
-        }
+        public int Row { get; private set; } = row;
+        public int Col { get; private set; } = col;
     }
 }
