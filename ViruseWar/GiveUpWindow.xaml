@@ -1,25 +1,38 @@
 ﻿<Window x:Class="ViruseWar.GiveUpWindow"
-xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-xmlns:local="clr-namespace:ViruseWar"
-mc:Ignorable="d"
-Left="400" Top="275"
-Title="GiveUpWindow" Height="250" Width="650"
-MinHeight="250" MinWidth="650" MaxHeight="250" MaxWidth="650">
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ViruseWar"
+        mc:Ignorable="d"
+        Left="400" Top="275"
+        Title="GiveUpWindow" Height="350" Width="650"
+        MinHeight="350" MinWidth="650" MaxHeight="350" MaxWidth="650">
     <Grid Background="#256D85">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.70*"/>
             <RowDefinition/>
+            <RowDefinition Height="0.50*"/>
+            <RowDefinition Height="0.50*"/>
+            <RowDefinition Height="0.50*"/>
         </Grid.RowDefinitions>
+        
+        <!-- Text Block for displaying winner or message -->
         <TextBlock Name="WhoseWin" FontSize="50" FontFamily="Century" HorizontalAlignment="Center"
-VerticalAlignment="Center"
-Margin="10" Grid.Row="0" Foreground="#5C2E7E"/>
+                   VerticalAlignment="Center" Margin="0" Grid.Row="0" Foreground="#5C2E7E"/>
+
+        <!-- Button for New Game -->
         <Button Name="NewGame" Click="NewGameClick" VerticalAlignment="Center" FontSize="20" Height="40"
-Width="350" Margin="10"
-FontFamily="Century" BorderThickness="5" Grid.Row="1" BorderBrush="Turquoise"
-Background="#06283D"
-Foreground="Turquoise">New Game</Button>
+                Width="350" Margin="10" FontFamily="Century" BorderThickness="5" Grid.Row="1" 
+                BorderBrush="Turquoise" Background="#06283D" Foreground="Turquoise">New Game</Button>
+
+        <!-- Button for Load Game -->
+        <Button Name="LoadGame" Click="LoadGameClick" VerticalAlignment="Center" FontSize="20" Height="40"
+                Width="350" Margin="10" FontFamily="Century" BorderThickness="5" Grid.Row="2"
+                BorderBrush="Turquoise" Background="#06283D" Foreground="Turquoise">Load</Button>
+
+        <!-- Button for Results -->
+        <Button Name="ShowResults" Click="ShowResultsClick" VerticalAlignment="Center" FontSize="20" Height="40"
+                Width="350" Margin="10" FontFamily="Century" BorderThickness="5" Grid.Row="3"
+                BorderBrush="Turquoise" Background="#06283D" Foreground="Turquoise">Results</Button>
     </Grid>
 </Window>

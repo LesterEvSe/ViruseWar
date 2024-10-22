@@ -95,8 +95,7 @@ namespace ViruseWar
             if (recolor == Player.EMPTY)
                 return;
 
-            if (++NumOfCalls >= 3)
-            {
+            if (++NumOfCalls >= 3) {
                 NumOfCalls = 0;
                 move_first = !move_first;
                 PlayerTurn.Text = move_first ? "Player 1's turn" : "Player 2's turn";
@@ -105,13 +104,10 @@ namespace ViruseWar
 
             }
 
-            if (recolor == Player.FIRST || recolor == Player.SECOND)
-            {
+            if (recolor == Player.FIRST || recolor == Player.SECOND) {
                 button.Foreground = MyColors.ChooseColor[recolor];
                 button.Content = (recolor == Player.FIRST) ? "X" : "O";
-            }
-            else
-            {
+            } else {
                 button.Background = MyColors.ChooseColor[recolor];
                 button.Content = "";
             }
@@ -122,8 +118,7 @@ namespace ViruseWar
         private void WindowKeyDown(object sender, KeyEventArgs e)
         {
             // Saves data
-            if (e.Key == Key.S)
-            {
+            if (e.Key == Key.S) {
                 if (caretaker.Backup(move_first))
                     MessageBox.Show(move_first ? "Player 1's successfully saved" : "Player 2's successfully saved");
                 else

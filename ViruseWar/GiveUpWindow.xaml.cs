@@ -28,5 +28,13 @@ namespace ViruseWar
             Close();
             MWindow.Show();
         }
+        private void LoadGameClick(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+        private void ShowResultsClick(object sender, RoutedEventArgs e)
+        {
+            throw new NotFiniteNumberException();
+        }
     }
 }
