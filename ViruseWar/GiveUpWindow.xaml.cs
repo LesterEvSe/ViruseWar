@@ -32,9 +32,5 @@ namespace ViruseWar
         {
             throw new NotImplementedException();
         }
-        private void ShowResultsClick(object sender, RoutedEventArgs e)
-        {
-            throw new NotFiniteNumberException();
-        }
     }
 }

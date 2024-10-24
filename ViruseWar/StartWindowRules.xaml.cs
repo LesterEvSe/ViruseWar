@@ -18,6 +18,7 @@ namespace ViruseWar
 {
     public partial class StartWindowRules : Window
     {
+        DB db = DB.Instance;
         public StartWindowRules()
         {
             InitializeComponent();
@@ -40,11 +41,21 @@ namespace ViruseWar
         }
         private void LoadGameClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
-        }
-        private void ShowResultsClick(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
+            Hide();
+            SavedGamesWindow window = new SavedGamesWindow();
+            window.Owner = this;
+            window.ShowDialog();
+            Show();
+
+            /*
+            SavedGamesWindow window = new SavedGamesWindow();
+            window.Owner = this;
+            IsEnabled = false;
+
+            // Modal open
+            window.ShowDialog();
+            IsEnabled = true;
+            */
         }
     }
 }

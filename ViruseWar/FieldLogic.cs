@@ -98,17 +98,9 @@ namespace ViruseWar
                 }
                 return freeCell;
             }
-            if (CheckAlgorithm(row, col))
-            {
-                if (curr_cell == Player.EMPTY)
-                {
-                    m_instance.m_field[row, col] = CurrPlCol;
-                    return m_instance.m_field[row, col];
-                }
-                m_instance.m_field[row, col] = CapCol;
-                return m_instance.m_field[row, col];
-            }
-            return Player.EMPTY;
+
+            if (!CheckAlgorithm(row, col)) return Player.EMPTY;
+            return m_instance.m_field[row, col] = (curr_cell == Player.EMPTY) ? CurrPlCol : CapCol;
         }
     }
 }

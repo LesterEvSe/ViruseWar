@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using System.Linq;
+
 namespace ViruseWar
 {
     // our window
@@ -24,6 +26,7 @@ namespace ViruseWar
         private bool move_first = true;
         private static FieldLogic? m_field;
         private static readonly MyButton[,] ButtonsField = new MyButton[m_dimension, m_dimension];
+        private DB db = DB.Instance;
 
         public MainWindow()
         {
@@ -119,6 +122,7 @@ namespace ViruseWar
         {
             // Saves data
             if (e.Key == Key.S) {
+                db.AddGameToSlot("name", "temp");
                 if (caretaker.Backup(move_first))
                     MessageBox.Show(move_first ? "Player 1's successfully saved" : "Player 2's successfully saved");
                 else
@@ -127,6 +131,7 @@ namespace ViruseWar
             // Restores saved data
             if (e.Key == Key.R)
             {
+                MessageBox.Show(db.GetGameByName("name"));
                 if (caretaker.RestoreField(move_first))
                     RedrawField();
                 else

@@ -6,12 +6,11 @@
         xmlns:local="clr-namespace:ViruseWar"
         mc:Ignorable="d"
         Left="400" Top="275"
-        Title="GiveUpWindow" Height="350" Width="650"
-        MinHeight="350" MinWidth="650" MaxHeight="350" MaxWidth="650">
+        Title="GiveUpWindow" Height="300" Width="600"
+        MinHeight="300" MinWidth="600" MaxHeight="300" MaxWidth="600">
     <Grid Background="#256D85">
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition Height="0.50*"/>
             <RowDefinition Height="0.50*"/>
             <RowDefinition Height="0.50*"/>
         </Grid.RowDefinitions>
@@ -29,10 +28,5 @@
         <Button Name="LoadGame" Click="LoadGameClick" VerticalAlignment="Center" FontSize="20" Height="40"
                 Width="350" Margin="10" FontFamily="Century" BorderThickness="5" Grid.Row="2"
                 BorderBrush="Turquoise" Background="#06283D" Foreground="Turquoise">Load</Button>
-
-        <!-- Button for Results -->
-        <Button Name="ShowResults" Click="ShowResultsClick" VerticalAlignment="Center" FontSize="20" Height="40"
-                Width="350" Margin="10" FontFamily="Century" BorderThickness="5" Grid.Row="3"
-                BorderBrush="Turquoise" Background="#06283D" Foreground="Turquoise">Results</Button>
     </Grid>
 </Window>
