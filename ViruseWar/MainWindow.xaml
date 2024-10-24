@@ -1,31 +1,30 @@
 ﻿<Window x:Class="ViruseWar.MainWindow"
-
-xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-xmlns:local="clr-namespace:ViruseWar"
-mc:Ignorable="d"
-Title="MainWindow" Height="700" Width="650"
-Left="400" Top="75" KeyDown="WindowKeyDown"
-MinHeight="700" MinWidth="650" MaxHeight="700" MaxWidth="650">
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ViruseWar"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="650"
+        Left="400" Top="75" KeyDown="WindowKeyDown"
+        MinHeight="700" MinWidth="650" MaxHeight="700" MaxWidth="650"
+        WindowStartupLocation="CenterScreen">
     <Grid Background="#256D85">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.15*"/>
             <RowDefinition/>
             <RowDefinition Height="0.15*"/>
         </Grid.RowDefinitions>
+        
         <StackPanel Name="MainPanel" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1"/>
-        <TextBlock Name="PlayerTurn" FontSize="30" FontFamily="Century" HorizontalAlignment="Center"
-VerticalAlignment="Center"
-
-Margin="10" Grid.Row="0" Foreground="Black">
-Player 1's turn
-        </TextBlock>
-        <Button Name="GiveUp" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="150"
-Grid.Row="2"
-FontSize="20" FontFamily="Century" BorderThickness="5" Background="#06283D" Click="ButtonGiveUp">
+        
+        <TextBlock Name="PlayerTurn" FontSize="30" FontFamily="Century" HorizontalAlignment="Center" VerticalAlignment="Center"
+            Margin="10" Grid.Row="0" Foreground="Black">Player 1's turn</TextBlock>
+        
+        <Button Name="GiveUp" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="150" Grid.Row="2"
+            FontSize="20" FontFamily="Century" BorderThickness="5" Background="#06283D" Click="ButtonGiveUp">
             Give up
         </Button>
+        
     </Grid>
 </Window>

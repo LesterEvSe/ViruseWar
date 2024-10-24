@@ -1,0 +1,32 @@
+﻿<Window x:Class="ViruseWar.InputBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ViruseWar"
+        mc:Ignorable="d"
+        Left="400" Top="275"
+        Title="Save Game" Height="250" Width="400"
+        WindowStartupLocation="CenterScreen">
+    <Grid Background="#256D85">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Text Block to prompt the user for save name -->
+        <TextBlock Text="Enter Save Name" FontSize="40" FontFamily="Century" HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Margin="0,10,0,20" Grid.Row="0" Foreground="White"/>
+
+        <!-- TextBox for inputting the save name -->
+        <TextBox Name="SaveNameInput" FontSize="25" FontFamily="Century" HorizontalAlignment="Center" 
+                 VerticalAlignment="Center" Width="350" Margin="10" Grid.Row="1" Background="#06283D" 
+                 Foreground="Turquoise" BorderBrush="Turquoise" BorderThickness="5"/>
+
+        <!-- Button for confirming the save -->
+        <Button Content="OK" Click="OkButton_Click" VerticalAlignment="Center" FontSize="20" Height="40"
+                Width="150" Margin="10" FontFamily="Century" BorderThickness="5" Grid.Row="2"
+                BorderBrush="Turquoise" Background="#06283D" Foreground="Turquoise"/>
+    </Grid>
+</Window>

@@ -9,10 +9,6 @@ using System.Security.Cryptography.Xml;
 
 namespace ViruseWar
 {
-    // TODO: add the result to 1 of 4 slots (or replace).
-    // Delete certain slot.
-    // Get data from certain slot.
-    // Get data from all table.
     public class Game
     {
         [Key]
@@ -37,8 +33,6 @@ namespace ViruseWar
         }
 
         // LINQ Requests
-        // Games
-        // TODO: recode, name is unique
         public void AddGameToSlot(string name, string fieldMatrix)
         {
             var game = Games.SingleOrDefault(g => g.Name == name);
@@ -51,16 +45,6 @@ namespace ViruseWar
 
             Games.Add(new Game { Name = name, FieldMatrix = fieldMatrix });
             SaveChanges();
-
-            /*
-            if (Games.Count() < 5) {
-                Games.Add(new Game { Name = name, FieldMatrix = fieldMatrix });
-            } else {
-                var gameToReplace = Games.First();
-                gameToReplace.FieldMatrix = fieldMatrix;
-            }
-            SaveChanges();
-            */
         }
         public bool DeleteGameByName(string name)
         {
@@ -81,7 +65,7 @@ namespace ViruseWar
         }
         public string[]? GetGamesName()
         {
-            return Games.Select(g => g.Name).ToArray();
+            return [.. Games.Select(g => g.Name)];
         }
     }
 }

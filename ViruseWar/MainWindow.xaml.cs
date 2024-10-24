@@ -24,7 +24,6 @@ namespace ViruseWar
         // the default constant is static
         private const int m_dimension = 10;
         private bool move_first = true;
-        private static FieldLogic? m_field;
         private static readonly MyButton[,] ButtonsField = new MyButton[m_dimension, m_dimension];
         private DB db = DB.Instance;
 
@@ -32,9 +31,10 @@ namespace ViruseWar
         {
             // For Binding, we can delete this
             DataContext = this;
+            
             // Create objects on field
             InitializeComponent();
-            m_field = FieldLogic.GetObject();
+
             GiveUp.BorderBrush = GiveUp.Foreground = MyColors.ChooseColor[Player.FIRST];
             for (int i = 0; i < m_dimension; ++i)
             {
@@ -64,11 +64,11 @@ namespace ViruseWar
             ButtonsField[0, m_dimension - 1].Content = "O";
             ButtonsField[m_dimension - 1, 0].Foreground = MyColors.ChooseColor[Player.FIRST];
             ButtonsField[m_dimension - 1, 0].Content = "X";
+            RedrawField();
         }
         private static void RedrawField()
         {
-            if (m_field == null)
-                throw new NullReferenceException();
+            var m_field = FieldLogic.Instance;
             for (int i = 0; i < m_dimension; ++i)
                 for (int j = 0; j < m_dimension; ++j)
                 {
@@ -91,7 +91,7 @@ namespace ViruseWar
         // sender - returns the pressed button
         private void ButtonClick(object sender, RoutedEventArgs e)
         {
-            if (sender is not MyButton button || m_field == null)
+            if (sender is not MyButton button)
                 throw new NullReferenceException();
 
             Player recolor = FieldLogic.CheckCell(button.Row, button.Col, move_first);
@@ -121,17 +121,29 @@ namespace ViruseWar
         private void WindowKeyDown(object sender, KeyEventArgs e)
         {
             // Saves data
-            if (e.Key == Key.S) {
-                db.AddGameToSlot("name", "temp");
+            if (e.Key == Key.S)
+            {
+                InputBox dialog = new();
+                if (dialog.ShowDialog() == false)
+                    return;
+
+                string? saveName = dialog.SaveName;
+                if (saveName == null)
+                {
+                    MessageBox.Show("Something went wrong. Name doesn't save.");
+                    return;
+                }
+                db.AddGameToSlot(saveName + (move_first ? "1" : "2"), FieldLogic.Serialize());
+
                 if (caretaker.Backup(move_first))
-                    MessageBox.Show(move_first ? "Player 1's successfully saved" : "Player 2's successfully saved");
+                    MessageBox.Show(move_first ? $"Player 1's successfully saved with name {saveName}" : $"Player 2's successfully saved with name {saveName}");
                 else
                     MessageBox.Show(move_first ? "The 1st player can no longer save" : "The player can no longer save");
             }
+
             // Restores saved data
             if (e.Key == Key.R)
             {
-                MessageBox.Show(db.GetGameByName("name"));
                 if (caretaker.RestoreField(move_first))
                     RedrawField();
                 else
@@ -141,7 +153,6 @@ namespace ViruseWar
 
         private void ButtonGiveUp(object sender, RoutedEventArgs e)
         {
-            // TODO: Add Result to DB
             GiveUpWindow GUwindow = new(move_first);
             Close();
             GUwindow.Show();

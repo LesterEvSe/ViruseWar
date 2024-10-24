@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Left="400" Top="200"
         Title="StartWindowRules" Height="500" Width="650"
-        MinHeight="500" MinWidth="650" MaxHeight="500" MaxWidth="650">
+        MinHeight="500" MinWidth="650" MaxHeight="500" MaxWidth="650"
+        WindowStartupLocation="CenterScreen">
     <Grid Background="#256D85">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.15*"/>

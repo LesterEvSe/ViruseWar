@@ -42,20 +42,21 @@ namespace ViruseWar
         private void LoadGameClick(object sender, RoutedEventArgs e)
         {
             Hide();
-            SavedGamesWindow window = new SavedGamesWindow();
-            window.Owner = this;
-            window.ShowDialog();
-            Show();
+            SavedGamesWindow window = new()
+            {
+                Owner = this
+            };
 
-            /*
-            SavedGamesWindow window = new SavedGamesWindow();
-            window.Owner = this;
-            IsEnabled = false;
-
-            // Modal open
-            window.ShowDialog();
-            IsEnabled = true;
-            */
+            if (window.ShowDialog() == true)
+            {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                Close();
+            }
+            else
+            {
+                Show();
+            }
         }
     }
 }

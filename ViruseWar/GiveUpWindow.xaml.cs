@@ -30,7 +30,22 @@ namespace ViruseWar
         }
         private void LoadGameClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            Hide();
+            SavedGamesWindow window = new()
+            {
+                Owner = this
+            };
+
+            if (window.ShowDialog() == true)
+            {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                Close();
+            }
+            else
+            {
+                Show();
+            }
         }
     }
 }

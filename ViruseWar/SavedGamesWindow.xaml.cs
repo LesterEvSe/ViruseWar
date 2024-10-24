@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace ViruseWar
 {
-    /// <summary>
-    /// Interaction logic for SavedGamesWindow.xaml
-    /// </summary>
     public partial class SavedGamesWindow : Window
     {
         private DB db = DB.Instance;
@@ -49,9 +46,15 @@ namespace ViruseWar
             }
 
             var game = db.GetGameByName(selectedGame);
-            if (game != null)
+            if (game == null)
             {
-                MessageBox.Show($"Game {selectedGame} loaded successfully!");
+                MessageBox.Show("Failed to load the game.");
+            }
+            else
+            {
+                FieldLogic.Restore(game);
+                DialogResult = true;
+                Close();
             }
         }
 
@@ -65,6 +68,10 @@ namespace ViruseWar
             else if (!db.DeleteGameByName(selectedGame))
             {
                 MessageBox.Show("Game doesn't exist and can't be deleted.");
+            }
+            else
+            {
+                GameSelection.Items.Remove(selectedGame);
             }
         }
     }

@@ -5,32 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ViruseWar"
         mc:Ignorable="d"
-        Title="SavedGamesWindow" Height="300" Width="400"
+        Title="SavedGamesWindow" Height="350" Width="400"
         WindowStartupLocation="CenterScreen">
     <Grid Background="#256D85">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.20*"/>
-            <RowDefinition Height="0.40*"/>
+            <RowDefinition Height="0.30*"/>
+            <RowDefinition Height="0.30*"/>
             <RowDefinition Height="0.20*"/>
             <RowDefinition Height="0.20*"/>
         </Grid.RowDefinitions>
 
         <!-- Game selection -->
-        <TextBlock Text="Select a Game" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"
+        <TextBlock Text="Select a Game" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center"
                Grid.Row="0" Foreground="White"/>
 
         <!-- ComboBox for game selection -->
-        <ComboBox Name="GameSelection" FontSize="16" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center"
+        <ComboBox Name="GameSelection" FontSize="20" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center"
               Grid.Row="1" Background="White">
-            <!-- Ігри будуть завантажені через код -->
         </ComboBox>
 
         <!-- Button to load selected game -->
-        <Button Name="LoadSelectedGame" Click="LoadGame" VerticalAlignment="Center" FontSize="16" Height="40"
-            Width="120" Grid.Row="2" Background="#06283D" Foreground="Turquoise">Load Game</Button>
+        <Button Name="LoadSelectedGame" Click="LoadGame" VerticalAlignment="Center" FontSize="20" Height="40"
+            Width="150" Grid.Row="2"
+            Background="#06283D" Foreground="Turquoise" BorderThickness="5" BorderBrush="Turquoise">Load Game</Button>
 
         <!-- Button to delete selected game -->
-        <Button Name="DeleteSelectedGame" Click="DeleteGame" VerticalAlignment="Center" FontSize="16" Height="40"
-            Width="120" Grid.Row="3" Background="#990000" Foreground="White">Delete Game</Button>
+        <Button Name="DeleteSelectedGame" Click="DeleteGame" VerticalAlignment="Center" FontSize="20" Height="40"
+            Width="150" Grid.Row="3"
+            Background="#990000" Foreground="White" BorderThickness="5" BorderBrush="White">Delete Game</Button>
     </Grid>
 </Window>
