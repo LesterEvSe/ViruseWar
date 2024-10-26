@@ -20,10 +20,12 @@ namespace ViruseWar
         {
             InitializeComponent();
             WhoseWin.Text = move_first ? "The second player won!" : "The first player won!";
-            if (move_first) WhoseWin.Foreground = MyColors.ChooseColor[Player.SECOND];
+            if (move_first)
+                WhoseWin.Foreground = MyColors.ChooseColor[Player.SECOND];
         }
         private void NewGameClick(object sender, RoutedEventArgs e)
         {
+            FieldLogic.Reset();
             MainWindow MWindow = new();
             Close();
             MWindow.Show();
@@ -38,7 +40,7 @@ namespace ViruseWar
 
             if (window.ShowDialog() == true)
             {
-                MainWindow mainWindow = new MainWindow();
+                MainWindow mainWindow = new();
                 mainWindow.Show();
                 Close();
             }

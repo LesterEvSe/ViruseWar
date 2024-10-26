@@ -49,7 +49,7 @@ namespace ViruseWar
 
             if (window.ShowDialog() == true)
             {
-                MainWindow mainWindow = new MainWindow();
+                MainWindow mainWindow = new();
                 mainWindow.Show();
                 Close();
             }

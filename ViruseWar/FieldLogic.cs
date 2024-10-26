@@ -19,6 +19,20 @@ namespace ViruseWar
             m_field[m_dimension - 1, 0] = Player.FIRST;
         }
 
+        public static void Reset()
+        {
+            for (int i = 0; i < m_dimension; ++i)
+            {
+                for (int j = 0; j < m_dimension; ++j)
+                {
+                    Instance.m_field[i, j] = Player.EMPTY;
+                }
+            }
+
+            Instance.m_field[0, m_dimension - 1] = Player.SECOND;
+            Instance.m_field[m_dimension - 1, 0] = Player.FIRST;
+        }
+
         public Player this[int r, int c]
         {
             get
