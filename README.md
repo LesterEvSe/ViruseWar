@@ -22,3 +22,6 @@ A logic game for two with saves and easy rules described in the start window.
 ![images](images/load-window.png)
 
 </div>
+
+### Acknowledgements
+Thanks for help with WPF and DB [FTSadori](https://github.com/FTSadori)
